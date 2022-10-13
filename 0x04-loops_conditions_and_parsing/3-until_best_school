@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #prints ten times
 
-counter=0
+i=0
 
-until [ $counter -gt 5 ]
+until [ $i -gt 9 ]
 do
-  echo Counter: $counter
-  ((counter++))
+  echo Best School
+  ((i++))
 done
