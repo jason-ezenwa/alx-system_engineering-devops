@@ -3,7 +3,7 @@
 
 i=0
 
-until [[ "$1" -eq 9 ]]
+until [[ "$1" -gt 9 ]]
 do
     echo "Best School"
     ((i++))
