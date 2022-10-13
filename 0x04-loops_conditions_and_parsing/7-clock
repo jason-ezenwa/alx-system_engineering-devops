@@ -2,11 +2,11 @@
 #clock
 
 Hour=0
-minute=0
+minute=1
 
 echo "Hour: $Hour"
 while((Hour <= 12)); do
-    minute=0
+    minute=1
     while((minute <= 60)); do
     case $minute in
     60)
