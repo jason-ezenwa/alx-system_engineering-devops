@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#clock
+
+Hour=0
+minute=0
+
+echo "Hour: $Hour"
+while((Hour <= 12)); do
+    minute=0
+    while((minute <= 60)); do
+    case $minute in
+    60)
+    ((Hour++))
+    if [ "$Hour" != 13 ]; then
+    echo "Hour: $Hour"
+    fi
+    ;;
+    *)
+    echo $minute
+    ;;
+    esac
+    ((minute++))
+    done
+done
