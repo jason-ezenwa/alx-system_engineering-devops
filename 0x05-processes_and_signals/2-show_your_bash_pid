@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#displays its own PID
+#displays lines containing the bash word
 # shellcheck disable=SC2009
 
 ps aux | grep bash
