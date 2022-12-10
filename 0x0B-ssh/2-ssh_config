@@ -1,0 +1,5 @@
+#!usr/bin/env bash
+# configuration settings to disable password authentication and the change identity file
+Host 18.206.233.20
+IdentityFile ~/.ssh/school
+PasswordAuthentication no
