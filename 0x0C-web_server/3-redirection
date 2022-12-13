@@ -11,22 +11,21 @@ cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.bckup
 sudo echo "Hello World!" > /var/www/html/index.nginx-debian.html
 # overwrrite that index file
 sudo echo -e \
-     "http { 
-     	   server {
-           listen 80 default_server;
-           listen [::]:80 default_server;
+     "server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
 
-           root /var/www/html;
-           index index.html index.htm index.nginx-debian.html;
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
 
-           server_name _;
+        server_name _;
 
-           location / {
-	   	    return 301;
-        	    }
-		    # if location is redirect me
-}
-}
-events {}" > /etc/nginx/nginx.conf
+        location / {
+                try_files $uri $uri/ =404;
+        }
+	location /redirect_me {
+		 return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4$request_uri;
+	}
+}" > /etc/nginx/sites-available/default
 # write the following configurations in nginx config
 sudo service nginx start
