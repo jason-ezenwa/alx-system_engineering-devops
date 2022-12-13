@@ -20,6 +20,9 @@ echo "server {
       return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
    }
    error_page 404 /404.html;
+   location = /404.html{
+      internal;
+   }
 }" > default
 sudo mv -f default /etc/nginx/sites-available/default
 sudo service nginx restart
