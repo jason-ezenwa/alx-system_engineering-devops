@@ -9,12 +9,12 @@ sudo mv index.html /var/www/html
 echo "Ceci n'est pas une page" > 404.html
 sudo mv 404.html /var/www/html
 # echo into a newly created custom error page and move it 
+# it will be used as root later
 echo "server {
    listen 80 default_server;
    listen [::]:80 default_server;
    
    root /var/www/html;
-   # use the directory the error page is, as root dir
    index index.html;
    location /redirect_me {
       return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
