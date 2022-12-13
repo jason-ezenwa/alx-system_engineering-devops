@@ -23,9 +23,10 @@ sudo echo -e \
         location / {
                 try_files $uri $uri/ =404;
         }
-	location /redirect_me {
-		 return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4$request_uri;
+	location = /redirect_me/ {
+		 return 301 $scheme://www.youtube.com/watch?v=QH2-TGUlwu4$request_uri;
 	}
 }" > /etc/nginx/sites-available/default
-# write the following configurations in nginx config
-sudo service nginx start
+# second location redirects if file location requested is redirect_me
+# write the above configurations in nginx sites-available and restart nginx to save changes
+sudo service nginx restart
