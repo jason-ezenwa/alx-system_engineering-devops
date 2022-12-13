@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # Installs nginx on my web-01 server
-sudo apt-get -y update
-sudo apt-get install -y nginx
+apt-get -y update
+apt-get install -y nginx
 # installs nginx
-sudo ufw allow 'Nginx HTTP'
+ufw allow 'Nginx HTTP'
 # allows nginx on firewall
 echo 'Hello World!' > /var/www/html/index.nginx-debian.html
 # writes hello world into te html file
-sudo service nginx restart
+service nginx restart
