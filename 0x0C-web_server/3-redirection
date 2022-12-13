@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # performs various configurations in the web server
 
-
+sudo apt-get -y update
+sudo sudo apt-get -y install nginx
 ufw allow 'Nginx HTTP'
 # installs nginx
 sudo chmod -R 777 /var/www
