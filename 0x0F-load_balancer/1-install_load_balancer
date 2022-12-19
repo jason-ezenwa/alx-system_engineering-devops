@@ -14,7 +14,7 @@ echo "ENABLED=1" >> /etc/default/haproxy
 # configuration in haproxy config file
 echo -e "
 
-frontend mywebservers
+frontend frontendserver
    bind *:80
    default_backend mywebservers
 
