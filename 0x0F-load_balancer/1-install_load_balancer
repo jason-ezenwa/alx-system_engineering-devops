@@ -10,6 +10,7 @@ apt-get install -y haproxy=2.7.\*
 # configurations
 
 # make HAProxy load balancer to start automatically when the system boots.
+touch /etc/default/haproxy
 echo "ENABLED=1" >> /etc/default/haproxy
 # configuration in haproxy config file
 echo -e "
@@ -20,7 +21,6 @@ frontend frontendserver
 
 backend mywebservers
    balance roundrobin
-   mode http
    server server1 100.25.41.245:80 check
    server server2 54.172.27.227:80 check" >> /etc/haproxy/haproxy.cfg
 service haproxy start 
