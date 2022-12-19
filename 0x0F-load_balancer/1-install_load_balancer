@@ -15,12 +15,12 @@ echo "ENABLED=1" >> /etc/default/haproxy
 echo -e "
 
 frontend mywebservers
-	 bind *:80
-	 default_backend mywebservers
+   bind *:80
+   default_backend mywebservers
 
 backend mywebservers
-	balance roundrobin
-	mode http
-	server server1 100.25.41.245:80 check
-	server server2 54.172.27.227:80 check" >> /etc//haproxy/haproxy.cfg
+   balance roundrobin
+   mode http
+   server server1 100.25.41.245:80 check
+   server server2 54.172.27.227:80 check" >> /etc/haproxy/haproxy.cfg
 service haproxy start 
