@@ -17,6 +17,7 @@ echo -e "
 
 frontend frontendserver
    bind *:80
+   mode http
    default_backend mywebservers
 
 backend mywebservers
