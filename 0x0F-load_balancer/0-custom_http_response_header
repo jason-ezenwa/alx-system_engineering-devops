@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# a script to configure Nginx so that its HTTP response contains a custom header
+# The name of the custom HTTP header must be X-Served-By and the value is the hostname
+
+sed -i '/http {/ a\	 add_header X-Served-By $hostname;' /etc/nginx/nginx.conf
+# above uses sed to append the custom header configuration to nginx.conf
