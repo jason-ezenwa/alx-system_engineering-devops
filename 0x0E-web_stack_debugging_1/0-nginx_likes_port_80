@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 # fixing nginx connection bug
 echo -e "
-server {
-  listen 80;
-  listen [::]:80;
-  server_name _;
+http {
+  server {
+    listen 80;
+    listen [::]:80;
+    server_name _;
+  }
 }
 " >> /etc/nginx/nginx.conf
