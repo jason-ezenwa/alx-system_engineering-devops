@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
-# fixing nginx connection bug
-echo -e "
-http {
-  server {
-    listen 80;
-    listen [::]:80;
-    server_name _;
-  }
-}
-" >> /etc/nginx/nginx.conf
+# make nginx run and listen on port 80
+
+# make nginx listen to the servers in sites-available instead
+sed -i "s/sites-enabled/sites-available/" /etc/nginx/nginx.conf
+service nginx restart
