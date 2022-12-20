@@ -3,9 +3,9 @@
 
 # install HAProxy
 apt-get install --no-install-recommends software-properties-common -y
-add-apt-repository ppa:vbernat/haproxy-2.7 -y
+add-apt-repository ppa:vbernat/haproxy-2.0 -y
 apt-get update -y
-apt-get install -y haproxy=2.7.\*
+apt-get install -y haproxy=2.0.\*
 
 # configurations
 
