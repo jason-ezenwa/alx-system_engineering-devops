@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # fixing nginx connection bug
-sed -i '/^http {$/ a\
-  server { \\
-    listen 80; \\
-    listen [::]:80; \\
-    server_name _; \\
-  }' /etc/nginx/nginx.conf
+echo -e "
+server { \\
+  listen 80; \\
+  listen [::]:80; \\
+  server_name _; \\
+}
+" >> /etc/nginx/nginx.conf
