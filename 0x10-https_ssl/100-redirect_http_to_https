@@ -19,20 +19,26 @@ defaults
     option  http-server-close
 
 frontend www-http
-    bind   0.0.0.0:80
-    reqadd X-Forwarded-Proto:\ http
-    default_backend www-backend
-    redirect scheme https code 301 if !{ ssl_fc }
+   bind *:80
+   mode http
+   default_backend www-jasonflairbackend
+   redirect scheme https code 301 if !{ ssl_fc }
 
 frontend www-https
-    bind   0.0.0.0:443 ssl crt /etc/haproxy/certs/www.bdbnb.site.pem
-    reqadd X-Forwarded-Proto:\ https
-    acl    letsencrypt-acl path_beg /.well-known/acme-challenge/
-    use_backend letsencrypt-backend if letsencrypt-acl
-    default_backend www-backend
+   bind *:443 ssl crt /etc/letsencrypt/live/www.jasonflair.tech/fullchain.pem
+   http-request set-header X-Forwarded-Proto https
+   acl    letsencrypt-acl path_beg /.well-known/acme-challenge/
+   use_backend letsencrypt-backend if letsencrypt-acl
+   default_backend www-jasonflairbackend
 
-backend www-backend
-    balance  roundrobin
+backend www-jasonflairbackend
+   balance roundrobin
+   redirect scheme https if !{ ssl_fc }
+   server 56293-web-01 100.25.41.245:80 check
+   server 56293-web-02 54.172.27.227:80 check
+
+backend letsencrypt-backend
+   server letsencrypt 127.0.0.1:54321
     redirect scheme https if !{ ssl_fc }
     server 56293-web-01 100.25.41.245:80 check
     server 56293-web-02 54.172.27.227:80 check
