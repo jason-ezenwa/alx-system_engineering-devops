@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Configures ufw so that it blocks all incoming traffic, except the following TCP ports:
+# 22, 80 and 443
+sudo apt-get update -y
+sudo apt-get install ufw -y
+sudo ufw enable
+sudo allow 80/tcp
+sudo allow 443/tcp
+sudo allow 22/tcp
