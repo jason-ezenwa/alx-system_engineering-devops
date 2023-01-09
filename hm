@@ -1,0 +1,8 @@
+root       460  0.0  0.0  44992  3060 pts/2    S    13:43   0:00  \_ sudo su nginx
+root       461  0.0  0.0  46636  2764 pts/2    S    13:43   0:00      \_ su nginx
+nginx      462  0.0  0.0  18184  3304 pts/2    S+   13:43   0:00          \_ bash
+root       517  0.0  0.0  85912  2820 ?        Ss   13:44   0:00 nginx: master process /usr/sbin/nginx
+nginx      518  0.0  0.0  86256  3608 ?        S    13:44   0:00  \_ nginx: worker process
+nginx      519  0.0  0.0  86256  3608 ?        S    13:44   0:00  \_ nginx: worker process
+nginx      520  0.0  0.0  86256  3608 ?        S    13:44   0:00  \_ nginx: worker process
+nginx      521  0.0  0.0  86256  3608 ?        S    13:44   0:00  \_ nginx: worker process
