@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # debugging nginx, changing nginx to be run by nginx user
 sudo service nginx start
-sed -i "s/#user www-data;/user nginx nginx;" /etc/nginx/nginx.conf
+sed -i "s/#user www-data;/user nginx nginx;/g" /etc/nginx/nginx.conf
 
 # adding a server block that listes on port 8080
 echo -e "server {
