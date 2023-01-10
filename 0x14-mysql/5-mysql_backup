@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# a script to # backup and compress my database
 
 # Set the date variables
 day=$(date +%d)
