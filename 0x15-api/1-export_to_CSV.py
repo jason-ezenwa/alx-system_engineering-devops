@@ -29,4 +29,4 @@ if __name__ == '__main__':
     filename = employee_id + ".csv"
     with open(filename, "w", newline='') as csvfile:
         csvwriter = csv.writer(csvfile)
-        csvwriter.writerow(information)
+        csvwriter.writerows(information)
