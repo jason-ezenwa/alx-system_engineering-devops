@@ -26,6 +26,6 @@ if __name__ == '__main__':
     for task in to_do_tasks:
         information.append([employee_id, employee_name, task['completed'], task['title']])
     filename = employee_id + ".csv"
-    with open(filename, "w", newline='') as csvfile:
+    with open(filename, "w", newline="") as csvfile:
         csvwriter = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
-        csvwriter.writerows(information)
+        csvwriter.writerow(information)
