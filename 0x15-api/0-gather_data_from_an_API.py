@@ -3,10 +3,13 @@
 import requests
 import sys
 
-if __name__ == '__main__':
+
+def fetching():
     employee_id = sys.argv[1]  # take the input employee_id from command line
-    todo_url = "https://jsonplaceholder.typicode.com/todos?userId={}".format(employee_id)
-    username_url = "https://jsonplaceholder.typicode.com/users/{}".format(employee_id)
+    todo_url = "https://jsonplaceholder.typicode.com/" \
+               "todos?userId={}".format(employee_id)
+    username_url = "https://jsonplaceholder.typicode.com/" \
+                   "users/{}".format(employee_id)
 
     # send a GET request to todo_url and username_url
     # to retrieve the todo and employee data
@@ -35,3 +38,7 @@ if __name__ == '__main__':
     # print the title of the completed tasks
     for each_task in completed_tasks:
         print("\t{}".format(each_task['title']))
+
+
+if __name__ == '__main__':
+    fetching()
