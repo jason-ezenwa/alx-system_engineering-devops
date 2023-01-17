@@ -34,7 +34,8 @@ def fetching():
         if task_info.get('completed') is True:
             completed_tasks.append(task_info)
     completed_tasks_num = len(completed_tasks)
-    print("Employee {} is done with tasks({}/{}):".format(employee_name, completed_tasks_num, total_task_num))
+    print("Employee {} is done with tasks({}/{}):".format(
+        employee_name, completed_tasks_num, total_task_num))
     # print the title of the completed tasks
     for each_task in completed_tasks:
         print("\t {}".format(each_task['title']))
