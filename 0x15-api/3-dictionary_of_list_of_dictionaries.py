@@ -1,42 +1,34 @@
 #!/usr/bin/python3
-"""Exports to-do list information of all employees to JSON format."""
-import json
-import requests
+"""fetches information from JSONplaceholder API and exports to JSON
+   Author: Pericles Adjovi"""
 
-def fetch_all_employees_tasks():
-    all_employees_tasks = {}
-
-    for i in range(1, 11):
-        employee_id = i
-        employee_tasks = fetch_employee_tasks(employee_id)
-
-        all_employees_tasks[employee_id] = employee_tasks
-
-    with open("todo_all_employees.json", 'w') as jsonfile:
-        json.dump(all_employees_tasks, jsonfile)
-
-def fetch_employee_tasks(employee_id):
-    todo_url = "https://jsonplaceholder.typicode.com/todos?userId={}".format(employee_id)
-    username_url = "https://jsonplaceholder.typicode.com/users/{}".format(employee_id)
-
-    to_do_response = requests.get(todo_url)
-    employee_response = requests.get(username_url)
-
-    to_do_tasks = to_do_response.json()
-    employee_data = employee_response.json()
-
-    employee_name = employee_data["username"]
-
-    employee_tasks = []
-    for task in to_do_tasks:
-        task_data = {
-            "username": employee_name,
-            "task": task["title"],
-            "completed": task["completed"]
-        }
-        employee_tasks.append(task_data)
-
-    return employee_tasks
+from json import dump
+from requests import get
+from sys import argv
 
 if __name__ == "__main__":
-    fetch_all_employees_tasks()
+    users_url = "https://jsonplaceholder.typicode.com/users"
+    users_result = get(users_url).json()
+
+    big_dict = {}
+    for user in users_result:
+        todo_list = []
+
+        pep_fix = "https://jsonplaceholder.typicode.com"
+        todos_url = pep_fix + "/user/{}/todos".format(user.get("id"))
+        name_url = "https://jsonplaceholder.typicode.com/users/{}".format(
+            user.get("id"))
+
+        todo_result = get(todos_url).json()
+        name_result = get(name_url).json()
+        for todo in todo_result:
+            todo_dict = {}
+            todo_dict.update({"username": name_result.get("username"),
+                              "task": todo.get("title"),
+                              "completed": todo.get("completed")})
+            todo_list.append(todo_dict)
+
+        big_dict.update({user.get("id"): todo_list})
+
+    with open("todo_all_employees.json", 'w') as f:
+        dump(big_dict, f)
