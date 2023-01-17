@@ -24,7 +24,8 @@ if __name__ == '__main__':
     employee_name = employee_data["username"]
     information = []
     for task in to_do_tasks:
-        information.append([employee_id, employee_name, task['completed'], task['title']])
+        information.append([employee_id,
+                            employee_name, task['completed'], task['title']])
     filename = employee_id + ".csv"
     with open(filename, "w", newline="") as csvfile:
         csvwriter = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
