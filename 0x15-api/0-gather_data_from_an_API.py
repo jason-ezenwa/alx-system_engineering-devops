@@ -16,7 +16,8 @@ def fetching():
     username_url = f"https://jsonplaceholder.typicode.com/" \
                    f"users/{employee_id}"
 
-    # send a GET request to todo_url and username_url to retrieve the todo and employee data
+    # send a GET request to todo_url and username_url
+    # to retrieve the todo and employee data
     to_do_response = requests.get(todo_url)
     employee_response = requests.get(username_url)
 
