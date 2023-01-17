@@ -7,6 +7,7 @@ TODO list progress
 import requests
 import sys
 
+
 def fetching():
     """uses the rest api, currently testing how it works"""
     employee_id = sys.argv[1]  # take the input employee_id from command line
