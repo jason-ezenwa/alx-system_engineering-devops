@@ -22,7 +22,7 @@ if __name__ == '__main__':
     employee_data = employee_response.json()
 
     # get the name of the employee
-    employee_name = employee_data["name"]
+    employee_name = employee_data["username"]
     information = []
     for task in to_do_tasks:
         information.append([employee_id, employee_name, task['completed'], task['title']])
