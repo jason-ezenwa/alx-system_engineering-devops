@@ -4,12 +4,11 @@ A Python script that, using a REST API,
 for a given employee ID, returns information about his/her
 TODO list progress
 """
-import sys
 import requests
-
+import sys
 
 def fetching():
-    """uses the rest api"""
+    """uses the rest api, currently testing how it works"""
     employee_id = sys.argv[1]  # take the input employee_id from command line
     todo_url = f"https://jsonplaceholder.typicode.com/" \
                f"todos?userId={employee_id}"
