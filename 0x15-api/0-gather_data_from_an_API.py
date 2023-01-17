@@ -9,8 +9,8 @@ import requests
 
 def fetching():
     """uses the rest api"""
-    employee_id = int(sys.argv[1])  # take the input employee_id from command line
-    todo_url = f"https://jsonplaceholder.typicode.com/todos/{employee_id}"
+    employee_id = sys.argv[1]  # take the input employee_id from command line
+    todo_url = f"https://jsonplaceholder.typicode.com/todos?userId={employee_id}"
     username_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
 
     # send a GET request to todo_url and username_url to retrieve the todo and employee data
@@ -32,7 +32,7 @@ def fetching():
     completed_tasks = []
     # store the completed tasks in completed_tasks list
     for task_info in to_do_tasks:
-        if task_info['completed'] == True:
+        if task_info.get('completed') is True:
             completed_tasks.append(task_info)
     completed_tasks_num = len(completed_tasks)
     print(f"Employee {employee_name} is done with tasks({completed_tasks_num}/{total_task_num}):")
