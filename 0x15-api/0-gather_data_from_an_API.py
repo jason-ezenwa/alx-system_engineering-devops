@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-""" a script that uses an API to return info"""
+"""a script that uses an API to return info"""
 import requests
 import sys
 
 
-if __name__ == "__main__":
+def fetching():
+    """uses the rest api, currently testing how it works"""
     employee_id = sys.argv[1]  # take the input employee_id from command line
     todo_url = f"https://jsonplaceholder.typicode.com/" \
                f"todos?userId={employee_id}"
@@ -39,3 +40,8 @@ if __name__ == "__main__":
     # print the title of the completed tasks
     for each_task in completed_tasks:
         print(f"\t{each_task['title']}")
+
+
+if __name__ == "__main__":
+    """run the fetching function"""
+    fetching()
