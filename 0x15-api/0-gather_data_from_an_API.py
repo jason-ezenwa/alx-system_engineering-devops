@@ -4,8 +4,7 @@ import requests
 import sys
 
 
-def fetching():
-    """uses the rest api, currently testing how it works"""
+if __name__ == "__main__":
     employee_id = sys.argv[1]  # take the input employee_id from command line
     todo_url = f"https://jsonplaceholder.typicode.com/" \
                f"todos?userId={employee_id}"
@@ -40,8 +39,3 @@ def fetching():
     # print the title of the completed tasks
     for each_task in completed_tasks:
         print(f"\t{each_task['title']}")
-
-
-if __name__ == "__main__":
-    """run the fetching function"""
-    fetching()
