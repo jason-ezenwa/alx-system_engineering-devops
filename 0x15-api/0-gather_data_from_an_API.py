@@ -37,7 +37,7 @@ def fetching():
     print("Employee {} is done with tasks({}/{}):".format(employee_name, completed_tasks_num, total_task_num))
     # print the title of the completed tasks
     for each_task in completed_tasks:
-        print("\t{}".format(each_task['title']))
+        print("\t {}".format(each_task['title']))
 
 
 if __name__ == '__main__':
