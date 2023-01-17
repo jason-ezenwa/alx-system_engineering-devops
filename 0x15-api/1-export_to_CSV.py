@@ -6,10 +6,10 @@ import sys
 
 if __name__ == '__main__':
     employee_id = sys.argv[1]  # take the input employee_id from command line
-    todo_url = f"https://jsonplaceholder.typicode.com/" \
-               f"todos?userId={employee_id}"
-    username_url = f"https://jsonplaceholder.typicode.com/" \
-                   f"users/{employee_id}"
+    todo_url = "https://jsonplaceholder.typicode.com/" \
+               "todos?userId={}".format(employee_id)
+    username_url = "https://jsonplaceholder.typicode.com/" \
+                   "users/{}".format(employee_id)
 
     # send a GET request to todo_url and username_url
     # to retrieve the todo and employee data
