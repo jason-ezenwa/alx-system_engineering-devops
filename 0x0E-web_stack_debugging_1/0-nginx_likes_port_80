@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # make nginx run and listen on port 80
 
-# make nginx listen to the servers in sites-available instead
-sed -i "s/sites-enabled/sites-available/" /etc/nginx/nginx.conf
+# create a symlink between sites-available and sites-enabled because
+# some sites available are not enabled which include one listening on port 80.
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default 
 service nginx restart
