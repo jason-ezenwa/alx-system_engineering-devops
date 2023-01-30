@@ -1,8 +1,8 @@
 # My first postmortem
 
 __Issue Summary__
-The outage lasted for one hour, from 6:15pm when it began to 7:15pm (WAT) when the issue was resolved.
-Users were unable to get any service at port 80. 100% of the users attempting to establish connection at port 80 were unable to. The root cause of this outage was the absence of any listening directive on port 80 for the sites enabled.
+  The outage lasted for one hour, from 6:15pm when it began to 7:15pm (WAT) when the issue was resolved.
+  Users were unable to get any service at port 80. 100% of the users attempting to establish connection at port 80 were unable to. The root cause of this outage was the absence of any listening directive on port 80 for the sites enabled.
 
 __Timeline__
 -	6:13pm: sites-enabled Nginx configuration implemented
@@ -13,7 +13,7 @@ __Timeline__
 -	6:25pm: Connections to port 80 are permitted again.
 
 __Root Cause__
-At 6:13pm, some Nginx sites-enabled configurations were done on the server, with a listening directive for port 80 omitted. Since the configurations of sites-enabled are included in the nginx.conf http block, this caused errors and refusals when users attempted to connect on port 80. The issue was resolved by insistedly creating a symbolic link between sites-available, which had a port 80 listening directive and the sites-enabled and this created the listening directive in the sites-enabled default file. The Nginx service was restarted to implement all reconfigurations.
+  At 6:13pm, some Nginx sites-enabled configurations were done on the server, with a listening directive for port 80 omitted. Since the configurations of sites-enabled are included in the nginx.conf http block, this caused errors and refusals when users attempted to connect on port 80. The issue was resolved by insistedly creating a symbolic link between sites-available, which had a port 80 listening directive and the sites-enabled and this created the listening directive in the sites-enabled default file. The Nginx service was restarted to implement all reconfigurations.
 
 __Corrective and preventative measures__
 -	Ensure that changes are reviewed and approved before being implemented in production
