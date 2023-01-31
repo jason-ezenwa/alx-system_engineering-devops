@@ -5,7 +5,7 @@ import requests
 
 def top_ten(subreddit):
     headers = {"User-Agent": "CustomUser"}
-    url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
+    url = 'https://www.reddit.com/r/{}/hot.json?limit=10'.format(subreddit)
     response = requests.get(url, headers=headers, allow_redirects=False)
     if response.status_code == 404:
         print("None")
