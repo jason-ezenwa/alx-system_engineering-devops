@@ -6,7 +6,7 @@ import requests
 def top_ten(subreddit):
     try:
         headers = {"User-Agent": "CustomUser"}
-        url = 'https://www.reddit.com/r/{}/top.json'.format(subreddit)
+        url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
         response = requests.get(url, headers=headers)
         jsonresp = response.json()
         posts = jsonresp['data']['children']
