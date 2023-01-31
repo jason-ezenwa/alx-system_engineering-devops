@@ -12,6 +12,6 @@ def top_ten(subreddit):
         return
     jsonresp = response.json()
     posts = jsonresp['data']['children']
-    for post in range(0, 10):
-        print(posts[post]['data']['title'])
+    for post in posts:
+        print(post['data']['title'])
 
