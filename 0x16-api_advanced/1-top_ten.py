@@ -8,8 +8,6 @@ def top_ten(subreddit):
     url = 'https://www.reddit.com/r/{}/top.json'.format(subreddit)
     response = requests.get(url, headers=headers)
     jsonresp = response.json()
-    posts_list = []
     for post in jsonresp['data']['children']:
-        posts_list.append(post['title'])
-    return posts_list
+        print(post.title)
 
