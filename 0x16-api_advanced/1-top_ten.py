@@ -12,6 +12,6 @@ def top_ten(subreddit):
         posts = jsonresp['data']['children']
         for post in range(0, 10):
             print(posts[post]['data']['title'])
-    except(KeyError, IndexError):
+    except KeyError:
         print(None)
 
