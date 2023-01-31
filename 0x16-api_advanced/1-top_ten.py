@@ -13,5 +13,5 @@ def top_ten(subreddit):
         for post in range(0, 10):
             print(posts[post]['data']['title'])
     except KeyError:
-        print(None)
+        print("None")
 
