@@ -1,0 +1,24 @@
+# configurations for airbnb clone v3
+
+server {                    
+   listen 80 default_server;
+   listen [::]:80 default_server;
+   add_header X-Served-By 56293-web-01;
+
+   root /var/www/html;
+   index index.html;
+
+   location /hbnb_static {
+      alias /data/web_static/current;
+   location /api {
+      proxy_pass  http://127.0.0.1:5002/api;
+   }
+
+   location /redirect_me {
+      return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+   }
+   error_page 404 /404.html;
+   location = /404.html{
+      internal;
+   }
+}
