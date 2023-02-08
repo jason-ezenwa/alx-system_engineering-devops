@@ -1,0 +1,43 @@
+# configures nginx to serve AirBnB_clone_v4 with gunicorn
+
+server {
+   listen 80 default_server;
+   listen [::]:80 default_server;
+   server_name 100.25.41.245;
+   add_header X-Served-By 56293-web-01;
+
+   root /var/www/html;
+   index index.html;
+
+   location /hbnb_static {
+      alias /data/web_static/current;
+      index index.html index.htm;
+   }
+
+   location /airbnb-onepage/ {
+      proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
+   }
+
+   location /airbnb-dynamic/number_odd_or_even/ {
+      proxy_pass http://127.0.0.1:5001/airbnb-dynamic/number_odd_or_even/;
+   }
+
+   location /api {
+      proxy_pass  http://127.0.0.1:5002/api;
+   }
+
+   location / {
+      proxy_pass http://127.0.0.1:5003/2-hbnb;
+   }
+   location /static/ {
+      root /home/ubuntu/AirBnB_clone_v4/web_dynamic;
+   }
+
+   location /redirect_me {
+      return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+   }
+   error_page 404 /404.html;
+   location = /404.html{
+      internal;
+   }
+}
