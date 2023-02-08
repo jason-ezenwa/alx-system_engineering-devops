@@ -6,5 +6,6 @@ exec {'sed':
 }
 
 exec {'restart':
-  command => 'service nginx restart',
+  command  => 'service nginx restart',
+  provider => 'shell',
 }
