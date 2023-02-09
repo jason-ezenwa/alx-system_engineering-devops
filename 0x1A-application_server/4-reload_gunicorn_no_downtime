@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# reloads gunicorn workers without causing down time
+pkill -HUP gunicorn
